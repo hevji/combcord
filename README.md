@@ -220,8 +220,8 @@ combcord/
 
 | Component | License |
 |-----------|---------|
-| CombCord Plugin | **GPL-3.0-or-later** (matches Vencord) |
-| Mock Badge SVGs | **MIT** - from [merlinfuchs/discord-badges](https://github.com/merlinfuchs/discord-badges) |
+| CombCord Plugin | **GPL-3.0-or-later** |
+| Mock Badge SVGs | **No license** - from [dev-hoehle/discord-badges](https://github.com/dev-hoehle/discord-badges/) |
 | Vencord | **GPL-3.0-or-later** |
 
 See [`vencord-plugin/THIRD_PARTY_NOTICES.md`](vencord-plugin/THIRD_PARTY_NOTICES.md) for details.
@@ -231,5 +231,5 @@ See [`vencord-plugin/THIRD_PARTY_NOTICES.md`](vencord-plugin/THIRD_PARTY_NOTICES
 ## Credits
 
 - **Vencord** - Injection, patching, plugin API
-- **merlinfuchs/discord-badges** - Official Discord badge SVGs (MIT)
+- **dev-hoehle/discord-badges** - Official Discord badge SVGs
 - **Discord** - The platform we're customizing
