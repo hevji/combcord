@@ -1,0 +1,17 @@
+{
+  "name": "combcord",
+  "private": true,
+  "version": "0.1.1-beta",
+  "type": "module",
+  "scripts": {
+    "setup": "powershell -NoProfile -ExecutionPolicy Bypass -File vencord-plugin/install.ps1",
+    "build": "powershell -NoProfile -ExecutionPolicy Bypass -File vencord-plugin/install.ps1 -SkipBuild",
+    "test": "vitest run",
+    "lint": "oxlint vencord-plugin"
+  },
+  "devDependencies": {
+    "oxlint": "^1.88.0",
+    "typescript": "~6.0.3",
+    "vitest": "^3.2.7"
+  }
+}

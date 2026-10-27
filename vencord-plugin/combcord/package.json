@@ -1,0 +1,13 @@
+{
+  "name": "combcord",
+  "version": "0.1.1-beta",
+  "description": "CombCord – local‑only Discord profile customisation",
+  "main": "index.tsx",
+  "vencord": {
+    "main": "index.tsx"
+  },
+  "scripts": {},
+  "keywords": ["vencord", "plugin"],
+  "author": "CombCord",
+  "license": "GPL-3.0-or-later"
+}
