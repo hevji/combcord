@@ -82,16 +82,28 @@ if exist "%VENCORD_DIR%\package.json" (
 )
 
 rem ---------------------------------------------------------------------------
-rem 3. Sync plugin source
+rem 3. Clone CombCord repo & sync plugin source
 rem ---------------------------------------------------------------------------
 echo.
-echo [3/6] Syncing CombCord plugin...
+echo [3/6] Fetching CombCord plugin from GitHub...
 
-set "PLUGIN_SRC=%~dp0vencord-plugin\combcord"
+set "COMBCORD_REPO=https://github.com/hevji/combcord.git"
+set "TEMP_DIR=%TEMP%\combcord-install-%RANDOM%"
+
+echo   Cloning CombCord (shallow)...
+git clone --depth 1 --branch master "%COMBCORD_REPO%" "%TEMP_DIR%"
+if %errorlevel% neq 0 (
+    echo ERROR: Failed to clone CombCord repo
+    pause
+    exit /b 1
+)
+
+set "PLUGIN_SRC=%TEMP_DIR%\vencord-plugin\combcord"
 set "PLUGIN_DST=%VENCORD_DIR%\src\plugins\combcord"
 
 if not exist "%PLUGIN_SRC%\index.tsx" (
-    echo ERROR: Plugin source not found at %PLUGIN_SRC%
+    echo ERROR: Plugin source not found in cloned repo
+    rmdir /s /q "%TEMP_DIR%" 2>nul
     pause
     exit /b 1
 )
@@ -100,6 +112,9 @@ rmdir /s /q "%PLUGIN_DST%" 2>nul
 mkdir "%PLUGIN_DST%"
 xcopy /E /I /Q "%PLUGIN_SRC%\*" "%PLUGIN_DST%\"
 echo   Plugin synced to %PLUGIN_DST%
+
+rem Cleanup temp clone
+rmdir /s /q "%TEMP_DIR%" 2>nul
 
 rem ---------------------------------------------------------------------------
 rem 4. Install Vencord dependencies
