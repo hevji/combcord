@@ -4,20 +4,20 @@
 
 A local-first Discord profile customization plugin for [Vencord](https://vencord.dev).
 
-All customization happens **inside Discord** — no external website, no JSON copy/paste, no separate app. Everything is configured through Vencord's native settings UI.
+All customization happens **inside Discord** - no external website, no JSON copy/paste, no separate app. Everything is configured through Vencord's native settings UI.
 
 ---
 
-## ✨ Features
+## Features
 
-### 🎭 Identity Customization
-- **Username Override** — Change your `@handle` locally
-- **Display Name Override** — Change your profile display name locally
-- **Custom Member Since** — Override your "Member Since" date (format: `YYYY-MM-DD`)
-- **Original Username Badge** — Show a badge with your real Discord username
+### Identity Customization
+- **Username Override** - Change your `@handle` locally
+- **Display Name Override** - Change your profile display name locally
+- **Custom Member Since** - Override your "Member Since" date (format: `YYYY-MM-DD`)
+- **Original Username Badge** - Show a badge with your real Discord username
 
-### 🏷️ Mock Discord Badges
-Visual replicas of official Discord badges (**85 badges** from [dev-hoehle/discord-badges](https://github.com/dev-hoehle/discord-badges)). Shown only on **your own profile** in this client. No real badges granted.
+### Mock Discord Badges
+Visual replicas of official Discord badges (**85 badges** from [merlinfuchs/discord-badges](https://github.com/merlinfuchs/discord-badges)). Shown only on **your own profile** in this client. No real badges granted.
 
 | Category | Badges |
 |----------|--------|
@@ -32,26 +32,26 @@ Visual replicas of official Discord badges (**85 badges** from [dev-hoehle/disco
 | **Application** | Application |
 | **Mock** | Owner (Mock), Originally Known As |
 
-- **Disclaimer Toggle** — Optionally show "visual replica, not official" in tooltips
-- **Multiple Selection** — Pick any combination of badges
-- **Searchable Picker** — Filter by name/group, selected badges outlined
+- **Disclaimer Toggle** - Optionally show "visual replica, not official" in tooltips
+- **Multiple Selection** - Pick any combination of badges
+- **Searchable Picker** - Filter by name/group, selected badges outlined
 
-### 🏷️ Custom Server Tags
+### Custom Server Tags
 - Set custom tags that appear next to your name in specific servers
-- Per-server (by Guild ID) — only visible to you in this client
+- Per-server (by Guild ID) - only visible to you in this client
 - Add/remove tags via the built-in editor
 
-### 🎨 Profile Appearance
-- **Accent Colors** — Solid or multi-stop gradients (8 directions)
-- **Avatar Frames** — None, Glow, Solid Ring, Gradient Ring, Custom SVG
-- **Decorations** — Border, Corner Accents, Side Bars, Full Frame, Background Patterns
-- **Backgrounds** — Solid, Gradient, Pattern, Image (with blur/opacity)
-- **Color Pickers** — Native color inputs for all color options
-- **Effects** — Reduce Motion, Enable Glow
+### Profile Appearance
+- **Accent Colors** - Solid or multi-stop gradients (8 directions)
+- **Avatar Frames** - None, Glow, Solid Ring, Gradient Ring, Custom SVG
+- **Decorations** - Border, Corner Accents, Side Bars, Full Frame, Background Patterns
+- **Backgrounds** - Solid, Gradient, Pattern, Image (with blur/opacity)
+- **Color Pickers** - Native color inputs for all color options
+- **Effects** - Reduce Motion, Enable Glow
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - **Node.js 22+**
@@ -74,10 +74,10 @@ Everything is driven by `combcord.bat`:
 
 | Command | What it does |
 | --- | --- |
-| `combcord.bat` | Build + start Discord (no patch) |
+| `combcord.bat` | Build + start Discord (prompts to close Discord) |
 | `combcord.bat build` | Sync plugin source and build Vencord |
-| `combcord.bat inject` | Close Discord, start Discord (loads from `dist\`) |
-| `combcord.bat patch` | Close Discord, **patch app.asar**, start Discord *(first install / Discord update only)* |
+| `combcord.bat inject` | Prompts to close Discord, start Discord (loads from `dist\`) |
+| `combcord.bat patch` | Prompts to close Discord, **patch app.asar**, start Discord *(first install / Discord update only)* |
 | `combcord.bat setup` | Clone/update the Vencord fork and install dependencies |
 | `combcord.bat watch` | Rebuild automatically on file changes |
 | `combcord.bat start` | Start Discord only |
@@ -98,18 +98,18 @@ CombCord is copied to `vencord-fork\src\plugins\combcord` and built into
 To use a different location, set `COMBCORD_VENCORD_DIR` before running
 `combcord.bat`.
 
-### What `combcord.bat inject` does (daily use — no logout)
+### What `combcord.bat inject` does (daily use - no logout)
 
-1. **Closes Discord** (Stable, Canary, PTB, Development) and verifies it is closed
-2. **Starts Discord** — loads plugin from `vencord-fork\dist\` (no app.asar modification)
+1. **Prompts to close Discord** (Stable, Canary, PTB, Development) and verifies it is closed
+2. **Starts Discord** - loads plugin from `vencord-fork\dist\` (no app.asar modification)
 
 ### What `combcord.bat patch` does (first install / Discord update only)
 
-1. **Closes Discord** and verifies it is closed
+1. **Prompts to close Discord** and verifies it is closed
 2. **Patches `app.asar`** using `node scripts/runInstaller.mjs -- -repair -branch stable`
 3. **Starts Discord** afterwards
 
-> ⚠️ `patch` replaces `app.asar` — Discord will log you out. Use only when needed.
+> **Note:** `patch` replaces `app.asar` - Discord will log you out. Use only when needed.
 
 ### After First Install / Patch
 1. Open Discord
@@ -119,9 +119,9 @@ To use a different location, set `COMBCORD_VENCORD_DIR` before running
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
-All settings live in **Discord → Settings → Vencord → Plugins → CombCord**:
+All settings live in **Discord -> Settings -> Vencord -> Plugins -> CombCord**:
 
 ```
 CombCord Settings
@@ -146,11 +146,11 @@ CombCord Settings
     └── Effects (Reduce Motion / Enable Glow)
 ```
 
-Changes apply **instantly** — open your profile to preview.
+Changes apply **instantly** - open your profile to preview.
 
 ---
 
-## 🔧 Development
+## Development
 
 ```bash
 # Run tests
@@ -193,11 +193,11 @@ combcord/
 
 ---
 
-## 📋 Version History
+## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
-| **0.1.1-BETA** | 2026-10-27 | Fixed color picker UI (aligned, responsive, no lag); removed black background from badges; separated `inject` (no logout) from `patch` (first install); 85 badges from dev-hoehle/discord-badges |
+| **0.1.1-BETA** | 2026-10-27 | Fixed color picker UI (aligned, responsive, no lag); removed black background from badges; separated `inject` (no logout) from `patch` (first install); 85 badges from merlinfuchs/discord-badges |
 | **0.1.0** | 2026-10-27 | Moved Vencord fork into project; fixed React error #130; color pickers with swatch + hex; native OS color picker; 85 badges; robust Discord close logic |
 | **0.0.9** | 2026-10-26 | Color picker component; hidden duplicate hex fields; reactive AppearanceEditor |
 | **0.0.8** | 2026-10-26 | Server tag inline editor; Original Username badge rework; badge picker search + outline |
@@ -205,31 +205,31 @@ combcord/
 
 ---
 
-## ⚠️ Limitations & Disclaimers
+## Limitations & Disclaimers
 
-- **Client-side only** — Nothing sent to Discord servers
-- **Your profile only** — Other users see real Discord data
-- **Discord updates may break patches** — Rebuild with `run.bat` after Discord updates
-- **Requires Vencord** — Not compatible with BetterDiscord, etc.
-- **Visual replicas only** — Mock badges grant no real entitlements
+- **Client-side only** - Nothing sent to Discord servers
+- **Your profile only** - Other users see real Discord data
+- **Discord updates may break patches** - Rebuild with `combcord.bat build` after Discord updates
+- **Requires Vencord** - Not compatible with BetterDiscord, etc.
+- **Visual replicas only** - Mock badges grant no real entitlements
 - **Not affiliated** with Discord or Vencord. Client mods violate Discord ToS.
 
 ---
 
-## 📄 Licenses
+## Licenses
 
 | Component | License |
 |-----------|---------|
 | CombCord Plugin | **GPL-3.0-or-later** (matches Vencord) |
-| Mock Badge SVGs | **MIT** — from [merlinfuchs/discord-badges](https://github.com/merlinfuchs/discord-badges) |
+| Mock Badge SVGs | **MIT** - from [merlinfuchs/discord-badges](https://github.com/merlinfuchs/discord-badges) |
 | Vencord | **GPL-3.0-or-later** |
 
 See [`vencord-plugin/THIRD_PARTY_NOTICES.md`](vencord-plugin/THIRD_PARTY_NOTICES.md) for details.
 
 ---
 
-## 🙏 Credits
+## Credits
 
-- **Vencord** — Injection, patching, plugin API
-- **merlinfuchs/discord-badges** — Official Discord badge SVGs (MIT)
-- **Discord** — The platform we're customizing
+- **Vencord** - Injection, patching, plugin API
+- **merlinfuchs/discord-badges** - Official Discord badge SVGs (MIT)
+- **Discord** - The platform we're customizing
